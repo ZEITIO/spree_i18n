@@ -1,6 +1,8 @@
 module Spree
   Product.class_eval do
-    translates :name, :description, :meta_description, :meta_keywords, :slug,
+    # Related to Cloning of product fails when not every slug translation is entered, https://github.com/spree/spree_i18n/issues/386
+    # Related to fix slug uniqueness error when clone product, https://github.com/spree/spree/pull/4634
+    translates :name, :description, :meta_description, :meta_keywords,
       :fallbacks_for_empty_translations => true
     include SpreeI18n::Translatable
 
